@@ -9,7 +9,8 @@ Perro::Perro() {
     this->tamanio = "";
     this->color = "";
     this->pPropietario = nullptr;
-    pVeterinario = nullptr;
+    this->pVeterinario = nullptr;
+    this->pRaza = nullptr;
 }
 
 // Constructor con parámetros utilizando lista inicializadora
@@ -75,6 +76,7 @@ void Perro::setColor(std::string color) {
 Perro::~Perro() {
     delete pPropietario;
     delete pVeterinario;
+    delete pRaza;
 }
 
 int Perro::getEdadPropietario() {
@@ -91,6 +93,18 @@ void Perro::asociarVeterinario(std::string nombreVeterinario, int añosExperienc
 
 void Perro::setVeterinario(Veterinario *pVeterinario) {
     this->pVeterinario = pVeterinario;
+}
+
+void Perro::asociarRaza(std::string nombreRaza, std::string paisOrigen) {
+    pRaza = new Raza(nombreRaza, paisOrigen);
+}
+
+Raza* Perro::getRaza2() {
+    return pRaza;
+}
+
+void Perro::setRaza2(Raza* pRaza) {
+    this->pRaza = pRaza;
 }
 
 
