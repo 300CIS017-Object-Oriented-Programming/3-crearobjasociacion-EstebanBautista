@@ -17,7 +17,27 @@ int main() {
 
     // Consultar el nombre del pPropietario del perro Firulais
     std::cout<< "El nombre del pPropietario del perro "<<firulais.getNombre() << " es " << firulais.getPropietario()->getNombre()<<std::endl;
+    
+    Raza mastinNapolitano("Mastin Napolitano", "Italia");
 
+    // Vincular a Firulais con la raza "Mastin Napolitano"
+    firulais.setRaza(&mastinNapolitano);
+
+    // Imprimir la información de Firulais y su raza asociada
+    std::cout << "Información de Firulais:" << std::endl;
+    std::cout << "Nombre: " << firulais.getNombre() << std::endl;
+    std::cout << "Color: " << firulais.getColor() << std::endl;
+    std::cout << "Edad: " << firulais.getEdad() << std::endl;
+    std::cout << "Tamaño: " << firulais.getTamanio() << std::endl;
+
+    // Imprimir la información de la raza asociada a Firulais
+    if (firulais.getRaza() != nullptr) {
+        std::cout << "Raza de Firulais:" << std::endl;
+        std::cout << "Nombre: " << firulais.getRaza()->getNombre() << std::endl;
+        std::cout << "País de origen: " << firulais.getRaza()->getPaisOrigen() << std::endl;
+    } else {
+        std::cout << "Firulais no tiene una raza asociada." << std::endl;
+    }
     
     // Crear un objeto Perro usando new
     Perro* miPerro = new Perro();
@@ -59,9 +79,15 @@ int main() {
     std::cout << "Información del veterinario del perro:" << std::endl;
     std::cout << "Nombre: " << miPerro.getVeterinario()->getNombre() << std::endl;
     std::cout << "Años de experiencia: " << miPerro.getVeterinario()->getAñosExperiencia() << std::endl;
-
+    miPerro.asociarRaza("Mastin Napolitano", "Italia");
     // Liberar la memoria asignada dinámicamente
     delete miPerro;
+
+    Raza mastinNapolitano("Mastin Napolitano", "Italia");
+    Raza maltes("Maltes", "Italia");
+
+    
+
     
     return 0;
 }
