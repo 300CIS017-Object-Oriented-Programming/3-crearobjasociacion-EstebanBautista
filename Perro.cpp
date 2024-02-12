@@ -2,15 +2,19 @@
 #include <iostream>
 
 
-// Ejemplo de constructor por defecto con lista inicializadora
-// Perro::Perro() : edad(0), raza(""), tamanio(""), color("") {}
-
-// Ejemplo de constructor por defecto iniciando los atributos en el cuerpo del constructor
+// Constructor por defecto
 Perro::Perro() {
     this->edad = 0;
     this->raza = "";
     this->tamanio = "";
     this->color = "";
+    this->pPropietario = nullptr;
+    pVeterinario = nullptr;
+}
+
+// Constructor con parámetros utilizando lista inicializadora
+Perro::Perro(std::string nombre, int edad, std::string raza, std::string color, std::string tamanio)
+    : nombre(nombre), edad(edad), raza(raza), color(color), tamanio(tamanio), pPropietario(nullptr) {
 }
 
 void Perro::ladrar() {
@@ -18,8 +22,6 @@ void Perro::ladrar() {
 }
 
 void Perro::agregarPropietario(std::string nombre, std::string docIdentidad) {
-    // Asocia a la variable de instancia pPropietario un nuevo pPropietario
-    // Es memoria dinámica, en el destructor se debe liberar
     this->pPropietario = new Propietario(nombre, docIdentidad);
 }
 
@@ -72,7 +74,26 @@ void Perro::setColor(std::string color) {
 
 Perro::~Perro() {
     delete pPropietario;
+    delete pVeterinario;
 }
+
+int Perro::getEdadPropietario() {
+    if (pPropietario != nullptr) {
+        return pPropietario->getEdad(); // Retornar la edad del propietario si existe
+    } else {
+        return -1; // Retornar un valor negativo si no hay propietario asociado
+    }
+}
+
+void Perro::asociarVeterinario(std::string nombreVeterinario, int añosExperiencia) {
+    pVeterinario = new Veterinario(nombreVeterinario, añosExperiencia);
+}
+
+void Perro::setVeterinario(Veterinario *pVeterinario) {
+    this->pVeterinario = pVeterinario;
+}
+
+
 
 
 
