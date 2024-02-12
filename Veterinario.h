@@ -10,14 +10,14 @@ private:
     int aniosExperiencia;
 public:
     Veterinario(); // Constructor por defecto
-    Veterinario(std::string nombre, int añosExperiencia); // Constructor con parámetros
+    Veterinario(std::string nombre, int aniosExperiencia); // Constructor con parámetros
     ~Veterinario(); // Destructor
 
     // Métodos de acceso para el atributo nombre
     std::string getNombre();
     void setNombre(std::string nombre);
 
-    // Métodos de acceso para el atributo añosExperiencia
+    // Métodos de acceso para el atributo aniosExperiencia
     int getAniosExperiencia();
     void setAniosExperiencia(int aniosExperiencia);
 };
