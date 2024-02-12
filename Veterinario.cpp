@@ -3,13 +3,13 @@
 // Constructor por defecto
 Veterinario::Veterinario() {
     nombre = "";
-    añosExperiencia = 0;
+    aniosExperiencia = 0;
 }
 
 // Constructor con parámetros
-Veterinario::Veterinario(std::string nombre, int añosExperiencia) {
+Veterinario::Veterinario(std::string nombre, int aniosExperiencia) {
     this->nombre = nombre;
-    this->añosExperiencia = añosExperiencia;
+    this->aniosExperiencia = aniosExperiencia;
 }
 
 // Destructor
@@ -26,11 +26,11 @@ void Veterinario::setNombre(std::string nombre) {
     this->nombre = nombre;
 }
 
-// Métodos de acceso para el atributo añosExperiencia
-int Veterinario::getAñosExperiencia() {
-    return añosExperiencia;
+// Métodos de acceso para el atributo aniosExperiencia
+int Veterinario::getAniosExperiencia() {
+    return aniosExperiencia;
 }
 
-void Veterinario::setAñosExperiencia(int añosExperiencia) {
-    this->añosExperiencia = añosExperiencia;
+void Veterinario::setAniosExperiencia(int aniosExperiencia) {
+    this->aniosExperiencia = aniosExperiencia;
 }
